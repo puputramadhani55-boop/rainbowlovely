@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RainbowLovelyStore</title> 
+<link rel="icon" href="picture/logo.jpeg">
+
+    <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+
+        /* Navigasi */
+        header { background: #B39EFE; color: #fff; padding: 1rem 0; text-align: center; font-size: 18px }
+        nav a { color: #fff; margin: 0 15px; text-decoration: none; }
+	nav a:hover { color:  #FE6D8C; text-decoration: none; }
+        
+     .kontak {
+  background: linear-gradient(135deg, #e4d4ff 0%, #ffe4f0 100%); /* ungu ke pink */
+}
+
+.kontak-box {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px 30px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.2);
+  text-align: center;
+}
+
+.kontak h2 {
+  color: #d946ef;
+  margin-bottom: 15px;
+}
+
+.kontak-grid {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.btn-kontak {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.btn-kontak:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.wa { background: #25D366; }
+.shopee { background: #ee4d2d; }
+.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+.jam-operasional {
+  color: #888;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+        /* Footer */
+        footer { background: #B39EFE; color: #fff; text-align: center; padding: 1rem 0; font-size: 18px; margin-top: 10rem; }
+	footer a { color: #ffd93d; text-decoration: none; margin: 0 15px; transition: 0.3s; font-size: 18px }
+	footer a:hover { color: BLACK; text-decoration: underline; }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="project.html">BERANDA</a>
+            <a href="produk.html">PRODUK</a>
+            <a href="tentangkami.html">TENTANG KAMI</a>
+            <a href="kontak.html">KONTAK</a>
+        </nav>
+    </header>
+
+    <section id="kontak" class="section kontak">
+  <div class="kontak-box">
+    <h2>💬 Hubungi Kami</h2>
+    <p>Punya pertanyaan atau mau custom manik? Chat aja langsung yaa~</p>
+    
+    <div class="kontak-grid">
+      <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="btn-kontak wa">
+        <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+          <path d="M20.52 3.48A11.8 11.8 0 0 0 12 .2 11.9 11.9 0 0 0 2.1 20.1L.2 24l3.9-1.9A11.9 11.9 0 0 0 12 23.8a11.8 11.8 0 0 0 8.52-20.32zM12 22a9.9 9.9 0 0 1-5.1-1.4l-.4-.2-2.7.7.7-2.6-.3-.4A10 10 0 1 1 12 22zm5.4-7.5c-.3-.1-1.7-.8-2-.9s-.5-.2-.7.2-.8 1-1 1.2-.3.2-.6 0-1.2-.4-2.3-1.4a9 9 0 0 1-1.6-2c-.2-.3 0-.4.1-.6s.3-.4.5-.6c.2-.2.2-.3.3-.5s0-.4 0-.6-.7-1.8-1-2.4-.6-.5-.8-.5h-.7c-.2 0-.6.1-.9.5s-1.1 1.1-1.1 2.7 1.1 3.1 1.3 3.3 2.2 3.5 5.4 4.9c.7.3 1.3.5 1.8.7.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4s.3-1.3.2-1.4-.3-.2-.6-.3z"/>
+        </svg>
+        WhatsApp
+      </a>
+      
+      <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-kontak shopee">
+        <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+          <path d="M7.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm9 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM3 4h2.5l3.6 7.6-1.4 2.5c-.2.4-.2.8 0 1.2.2.4.6.7 1 .7h9.5v-1.5H8.8l.8-1.5h6.7c.6 0 1.1-.3 1.4-.8l3.5-6.3c.2-.4.2-.8 0-1.2-.2-.4-.6-.7-1-.7H6.2l-.9-2H3V4z"/>
+        </svg>
+        Shopee
+      </a>
+      
+      <a href="https://instagram.com/rainbowlovely" target="_blank" class="btn-kontak ig">
+        <svg width="24" height="24" fill="white" viewBox="0 0 24 24">`
+          <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .3 2.7.6.7.3 1.3.7 1.9 1.3.6.6 1 1.2 1.3 1.9.3.7.5 1.5.6 2.7.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 2-.6 2.7-.3.7-.7 1.3-1.3 1.9-.6.6-1.2 1-1.9 1.3-.7.3-1.5.5-2.7.6-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.3-2.7-.6a5.3 5.3 0 0 1-1.9-1.3 5.3 5.3 0 0 1-1.3-1.9c-.3-.7-.5-1.5-.6-2.7C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-2 .6-2.7.3-.7.7-1.3 1.3-1.9.6-.6 1.2-1 1.9-1.3.7-.3 1.5-.5 2.7-.6C8.4 2.2 8.8 2.2 12 2.2zm0 5.3a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm5.8-1.3a1.1 1.1 0 1 0-2.2 0 1.1 1.1 0 0 0 2.2 0z"/>
+        </svg>
+        Instagram
+      </a>
+    </div>
+    
+    <p class="jam-operasional">🕐 Fast response: 09.00 - 21.00 WIB</p>
+  </div>
+</section>
+
+    <footer>
+        <p>&copy; 2026 Rainbow Lovely. All rights reserved</p>
+<div class="medsos">
+	<a href="link-shopee"> Shopee </a>
+	<a href="link-ig"> Instagram </a>
+	<a href="link-wa"> WhatsApp </a>
+</div>
+    </footer>
+
+</body>
+</html>
