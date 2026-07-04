@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=" width=device-width, initial-scale=1.0">
+    <title>RainbowLovelyStore</title> 
+<link rel="icon" href="picture/logo.jpeg">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">BERANDA</a>
+            <a href="produk.html">PRODUK</a>
+            <a href="tentangkami.html">TENTANG KAMI</a>
+            <a href="kontak.html">KONTAK</a>
+        </nav>
+    </header>
+
+<section id="beranda" class="section">
+<div class="h1">
+  <h1>Halo, aku <span id="typing"></span><span class="cursor">|</span></h1>
+  <p>Manik - Manik handmade untuk hari kamu yang lebih cantik</p>
+  <a href="#produk" class="btn">Lihat Produk</a>
+</div>
+</section>
+
+    <div class="products">
+        <h2>Produk Unggulan</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="picture/pink.jpeg">
+                <h3>Pink Bow Charm</h3>
+                <div class="price">Rp 28.000</div>
+                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
+            </div>
+            <div class="card">
+                <img src="picture/ungu.jpeg">
+                <h3>Lilac Star Charm</h3>
+
+                <div class="price">Rp 25.000</div>
+              <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Rainbow Lovely. All rights reserved</p>
+<div class="medsos">
+	<a href="link-shopee"> Shopee </a>
+	<a href="link-ig"> Instagram </a>
+	<a href="link-wa"> WhatsApp </a>
+</div>
+
+<script>
+const text = "Rainbow Lovely Store ✨";
+const typingElement = document.getElementById("typing");
+let i = 0;
+
+function ketik() {
+  if (i < text.length) {
+    typingElement.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(ketik, 170); // 170ms = kecepatan ngetik. Makin kecil makin cepet
+  }
+}
+
+// Jalanin pas halaman kebuka
+window.addEventListener('load', ketik);
+</script>
+
+    </footer>
+
+</body>
+</html>
