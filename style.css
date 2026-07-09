@@ -46,7 +46,7 @@ nav a:hover { color: #FE6D8C; }
 }
 
 .h1 {
-  background: #f4f4f4;
+  background: linear-gradient(to bottom, #fff0f5, #ffffff);
   padding: 3rem 1.25rem;
   text-align: center;
 }
@@ -130,7 +130,8 @@ nav a:hover { color: #FE6D8C; }
   padding: 1rem;
   text-align: center;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
 }
 
 .card img {
