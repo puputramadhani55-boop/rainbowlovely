@@ -22,67 +22,8 @@
     <div class="products">
         <h2>✨ Produk Unggulan ✨</h2>
 
-        <div class="grid grid-full">
-            <div class="card">
-                <img src="picture/pink.jpeg">
-                <h3>Pink Bow Charm</h3>
-                <div class="price">Rp 28.000</div>
-                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
-            </div>
-            <div class="card">
-                <img src="picture/ungu.jpeg">
-                <h3>Lilac Star Charm</h3>
-                <div class="price">Rp 25.000</div>
-                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
-            </div>
-            <div class="card">
-                <img src="picture/1.jpeg">
-                <h3>Lilac Star Charm</h3>
-                <div class="price">Rp 25.000</div>
-                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
-            </div>
-            <div class="card">
-                <img src="picture/2.jpeg">
-                <h3>Lilac Star Charm</h3>
-                <div class="price">Rp 25.000</div>
-                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
-            </div>
-            <div class="card">
-                <img src="picture/3.jpeg">
-                <h3>Lilac Star Charm</h3>
-                <div class="price">Rp 25.000</div>
-                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
-            </div>
-            <div class="card">
-                <img src="picture/4.jpeg">
-                <h3>Pink Bow Charm</h3>
-                <div class="price">Rp 28.000</div>
-                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
-            </div>
-            <div class="card">
-                <img src="picture/5.jpeg">
-                <h3>Lilac Star Charm</h3>
-                <div class="price">Rp 25.000</div>
-                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
-            </div>
-            <div class="card">
-                <img src="picture/6.jpeg">
-                <h3>Lilac Star Charm</h3>
-                <div class="price">Rp 25.000</div>
-                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
-            </div>
-            <div class="card">
-                <img src="picture/7.jpeg">
-                <h3>Lilac Star Charm</h3>
-                <div class="price">Rp 25.000</div>
-                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
-            </div>
-            <div class="card">
-                <img src="picture/8.jpeg">
-                <h3>Lilac Star Charm</h3>
-                <div class="price">Rp 25.000</div>
-                <a href="https://shopee.co.id/rainbowlovelystore" target="_blank" class="btn-shopee">Beli di Shopee</a>
-            </div>
+        <div class="grid grid-full" id="gridProduk">
+            <p style="text-align:center;color:#999;grid-column:1/-1;">Memuat produk...</p>
         </div>
     </div>
 
@@ -96,6 +37,36 @@
 	<a href="link-wa"> WhatsApp </a>
 </div>
     </footer>
+
+<script>
+const API_BASE = 'https://rainbow-lovely.vercel.app';
+
+async function muatProduk(containerId) {
+  const grid = document.getElementById(containerId);
+  if (!grid) return;
+  try {
+    const res = await fetch(API_BASE + '/api/list-products');
+    const json = await res.json();
+    const produk = json.products || [];
+    if (!produk.length) {
+      grid.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Belum ada produk.</p>';
+      return;
+    }
+    grid.innerHTML = produk.map(p => `
+      <div class="card">
+        <img src="${p.image_url || ''}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <div class="price">Rp ${Number(p.price || 0).toLocaleString('id-ID')}</div>
+        <a href="${p.shopee_url || '#'}" target="_blank" class="btn-shopee">Beli di Shopee</a>
+      </div>
+    `).join('');
+  } catch (err) {
+    grid.innerHTML = '<p style="text-align:center;color:#c33;grid-column:1/-1;">Gagal memuat produk.</p>';
+  }
+}
+
+muatProduk('gridProduk');
+</script>
 
 </body>
 </html>
