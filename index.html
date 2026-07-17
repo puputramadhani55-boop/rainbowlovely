@@ -80,6 +80,7 @@ async function muatProduk(containerId, limit) {
         <h3>${p.name}</h3>
         <div class="price">Rp ${Number(p.price || 0).toLocaleString('id-ID')}</div>
         <a href="${p.shopee_url || '#'}" target="_blank" class="btn-shopee">Beli di Shopee</a>
+		<a href="${p.tiktok_url || '#'}" target="_blank" class="btn-tiktok">Beli di Tiktok</a>
       </div>
     `).join('');
   } catch (err) {
