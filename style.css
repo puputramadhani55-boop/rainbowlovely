@@ -45,15 +45,23 @@ nav a:hover { color: #FE6D8C; }
   50% { opacity: 0; }
 }
 
+.beranda {
+  background: linear-gradient(135deg, #ffe4f0 0%, #e4d4ff 100%);
+  padding: 12px 20px;
+}
+
 .h1 {
-  background: linear-gradient(to bottom, #fff0f5, #ffffff);
   padding: 3rem 1.25rem;
   text-align: center;
 }
 
-.h1 h1 {
-  font-size: 1.6rem;
-  line-height: 1.4;
+.h2 {
+  padding: 3rem 1.25rem 0;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .h1 p {
@@ -94,14 +102,69 @@ nav a:hover { color: #FE6D8C; }
   box-shadow: 0 6px 16px rgba(238, 77, 45, 0.6);
 }
 
-.products {
-  padding: 2rem 1rem;
+.btn-tiktok {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #fe6d8c;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(238, 77, 45, 0.4);
+  transition: 0.3s;
+}
+.btn-tiktok:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(238, 77, 45, 0.6);
 }
 
-.products h2 {
-  color: #d946ef;
+.products {
+  background: linear-gradient(135deg, #ffe4f0 0%, #e4d4ff 100%);
+  padding: 3rem 1rem;
+}
+
+.products-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.products-header h2 {
+  color: #d946ef;
+  margin-bottom: 0.5rem;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 1rem 0 0.75rem;
+}
+
+.tab-btn {
+  display: inline-block;
+  padding: 10px 26px;
+  border-radius: 50px;
+  border: 2px solid #fe6d8c;
+  color: #fe6d8c;
+  background: transparent;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  background: #fe6d8c;
+  color: #fff;
+}
+
+.note {
+  color: #888;
+  font-size: 13px;
+  margin-top: 4px;
 }
 
 .grid {
@@ -199,7 +262,7 @@ nav a:hover { color: #FE6D8C; }
 }
 
 .kontak {
-  background: linear-gradient(135deg, #e4d4ff 0%, #ffe4f0 100%);
+  background: linear-gradient(135deg, #ffe4f0 0%, #e4d4ff 100%);
   padding: 3rem 1rem;
 }
 
