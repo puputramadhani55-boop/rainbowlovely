@@ -1,4 +1,4 @@
-const VERCEL_BASE = 'https://rainbow-lovely.vercel.app';
+const VERCEL_BASE = 'https://rainbowlovely.vercel.app';
 
 export default {
   async fetch(request, env) {
