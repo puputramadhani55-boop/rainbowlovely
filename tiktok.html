@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RainbowLovelyStore</title>
+  <link rel="icon" href="picture/logo.jpeg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">BERANDA</a>
+            <a href="produk.html">PRODUK</a>
+            <a href="tentangkami.html">TENTANG KAMI</a>
+            <a href="kontak.html">KONTAK</a>
+        </nav>
+    </header>
+
+    <section id="products" class="section products">
+        <div class="products-header">
+            <h2>✨ Best Seller Pilihan Affiliate ✨</h2>
+            <div class="tab-buttons">
+                <a href="produk.html" class="tab-btn">Shopee</a>
+                <a href="tiktok.html" class="tab-btn active">TikTok</a>
+            </div>
+            <p class="note">*Harga dapat berubah sewaktu-waktu di Shopee/Tiktok</p>
+        </div>
+
+        <div class="grid" id="gridProduk">
+            <p style="text-align:center;color:#999;grid-column:1/-1;">Memuat produk...</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Rainbow Lovely. All rights reserved</p>
+<div class="medsos">
+	<a href="shopee.co.id/rainbowlovelystore"> Shopee </a>
+	<a href="https://www.instagram.com/rainbow.store05?igsh=OWJhNnRvbzJlYmhk"> Instagram </a>
+	<a href="https://wa.me/0882001962797"> WhatsApp </a>
+</div>
+    </footer>
+
+<script>
+const API_BASE = 'https://rainbow-lovely.vercel.app';
+
+async function muatProduk(containerId) {
+  const grid = document.getElementById(containerId);
+  if (!grid) return;
+  try {
+    const res = await fetch(API_BASE + '/api/list-products');
+    const json = await res.json();
+    const produk = (json.products || []).filter(p => p.tiktok_url && p.tiktok_url !== '#');
+    if (!produk.length) {
+      grid.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Belum ada produk TikTok.</p>';
+      return;
+    }
+    grid.innerHTML = produk.map(p => `
+      <div class="card">
+        <img src="${p.image_url || ''}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <div class="price">Rp ${Number(p.price || 0).toLocaleString('id-ID')}</div>
+        <a href="${p.tiktok_url}" target="_blank" class="btn-tiktok">Beli di Tiktok</a>
+      </div>
+    `).join('');
+  } catch (err) {
+    grid.innerHTML = '<p style="text-align:center;color:#c33;grid-column:1/-1;">Gagal memuat produk.</p>';
+  }
+}
+
+muatProduk('gridProduk');
+</script>
+
+</body>
+</html>
