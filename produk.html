@@ -6,7 +6,6 @@
     <title>RainbowLovelyStore</title>
   <link rel="icon" href="picture/logo.jpeg">
   <link rel="stylesheet" href="style.css">
-  
 </head>
 <body>
 
@@ -19,22 +18,27 @@
         </nav>
     </header>
 
-    <div class="products">
-        <h2>✨ Best Seller Pilihan ✨</h2>
+    <section id="products" class="section products">
+        <div class="products-header">
+            <h2>✨ Best Seller Pilihan Affiliate ✨</h2>
+            <div class="tab-buttons">
+                <a href="produk.html" class="tab-btn active">Shopee</a>
+                <a href="tiktok.html" class="tab-btn">TikTok</a>
+            </div>
+            <p class="note">*Harga dapat berubah sewaktu-waktu di Shopee/Tiktok</p>
+        </div>
 
-        <div class="grid grid-full" id="gridProduk">
+        <div class="grid" id="gridProduk">
             <p style="text-align:center;color:#999;grid-column:1/-1;">Memuat produk...</p>
         </div>
-    </div>
-
-
+    </section>
 
     <footer>
-          <p>&copy; 2026 Rainbow Lovely. All rights reserved</p>
+        <p>&copy; 2026 Rainbow Lovely. All rights reserved</p>
 <div class="medsos">
-	<a href="link-shopee"> Shopee </a>
-	<a href="link-ig"> Instagram </a>
-	<a href="link-wa"> WhatsApp </a>
+	<a href="shopee.co.id/rainbowlovelystore"> Shopee </a>
+	<a href="https://www.instagram.com/rainbow.store05?igsh=OWJhNnRvbzJlYmhk"> Instagram </a>
+	<a href="https://wa.me/0882001962797"> WhatsApp </a>
 </div>
     </footer>
 
@@ -47,9 +51,9 @@ async function muatProduk(containerId) {
   try {
     const res = await fetch(API_BASE + '/api/list-products');
     const json = await res.json();
-    const produk = json.products || [];
+    const produk = (json.products || []).filter(p => p.shopee_url && p.shopee_url !== '#');
     if (!produk.length) {
-      grid.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Belum ada produk.</p>';
+      grid.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Belum ada produk Shopee.</p>';
       return;
     }
     grid.innerHTML = produk.map(p => `
@@ -57,7 +61,7 @@ async function muatProduk(containerId) {
         <img src="${p.image_url || ''}" alt="${p.name}">
         <h3>${p.name}</h3>
         <div class="price">Rp ${Number(p.price || 0).toLocaleString('id-ID')}</div>
-        <a href="${p.shopee_url || '#'}" target="_blank" class="btn-shopee">Beli di Shopee</a>
+        <a href="${p.shopee_url}" target="_blank" class="btn-shopee">Beli di Shopee</a>
       </div>
     `).join('');
   } catch (err) {
