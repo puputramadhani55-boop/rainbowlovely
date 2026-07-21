@@ -20,7 +20,7 @@
         </nav>
     </header>
 
-<section id="beranda" class="section">
+<section id="beranda" class="section beranda">
 <div class="h1">
   <h1>Halo, aku <span id="typing"></span><span class="cursor">|</span></h1>
   <p>Manik - Manik handmade untuk hari kamu yang lebih cantik</p>
@@ -29,10 +29,10 @@
 </section>
 
     <div class="products">
-        <h2>Produk Unggulan</h2>
-        <div class="grid" id="gridBeranda">
-            <p style="text-align:center;color:#999;grid-column:1/-1;">Memuat produk...</p>
-        </div>
+        <a href="produk.html" class="banner-produk">
+            <img src="picture/banner-produk.jpg" alt="Lihat semua produk unggulan Rainbow Lovely">
+            <span class="banner-produk-overlay">Lihat Semua Produk Unggulan</span>
+        </a>
     </div>
 
     <footer>
@@ -57,38 +57,6 @@ function ketik() {
 }
 
 window.addEventListener('load', ketik);
-</script>
-
-<script>
-const API_BASE = 'https://rainbowlovely-puce.vercel.app';
-
-async function muatProduk(containerId, limit) {
-  const grid = document.getElementById(containerId);
-  if (!grid) return;
-  try {
-    const res = await fetch(API_BASE + '/api/list-products');
-    const json = await res.json();
-    let produk = json.products || [];
-    if (limit) produk = produk.slice(0, limit);
-    if (!produk.length) {
-      grid.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Belum ada produk.</p>';
-      return;
-    }
-    grid.innerHTML = produk.map(p => `
-      <div class="card">
-        <img src="${p.image_url || ''}" alt="${p.name}">
-        <h3>${p.name}</h3>
-        <div class="price">Rp ${Number(p.price || 0).toLocaleString('id-ID')}</div>
-        <a href="${p.shopee_url || '#'}" target="_blank" class="btn-shopee">Beli di Shopee</a>
-		<a href="${p.tiktok_url || '#'}" target="_blank" class="btn-tiktok">Beli di Tiktok</a>
-      </div>
-    `).join('');
-  } catch (err) {
-    grid.innerHTML = '<p style="text-align:center;color:#c33;grid-column:1/-1;">Gagal memuat produk.</p>';
-  }
-}
-
-muatProduk('gridBeranda', 4);
 </script>
 
     </footer>
