@@ -120,7 +120,7 @@ nav a:hover { color: #FE6D8C; }
 }
 
 .products {
-  background: #ffffff;
+  background: #fff;
   padding: 3rem 1rem;
 }
 
@@ -147,7 +147,7 @@ nav a:hover { color: #FE6D8C; }
 
 .banner-produk img {
   width: 100%;
-  height: 320px;
+  height: 420px;
   object-fit: cover;
   background: #f7f7f7;
 }
@@ -166,7 +166,7 @@ nav a:hover { color: #FE6D8C; }
 }
 
 @media (max-width: 600px) {
-  .banner-produk img { height: 200px; }
+  .banner-produk img { height: 260px; }
   .banner-produk-overlay { font-size: 0.95rem; }
 }
 
