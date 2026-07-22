@@ -51,7 +51,7 @@ async function muatProduk(containerId) {
   try {
     const res = await fetch(API_BASE + '/api/list-products');
     const json = await res.json();
-    const produk = (json.products || []).filter(p => p.shopee_url && p.shopee_url !== '#');
+    const produk = (json.products || []).filter(p => p.product_type === 'shopee' && p.shopee_url !== '#');
     if (!produk.length) {
       grid.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Belum ada produk Shopee.</p>';
       return;
